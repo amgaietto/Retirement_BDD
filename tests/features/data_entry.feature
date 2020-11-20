@@ -12,6 +12,11 @@ Feature: Data Entry
 		Then the user is given a full retirement age
 
 
+	#I was not able to test the following two items as they would
+ # have required my interaction from the command line. If I were on
+# a website so I could use selenium, etc., I would be testing that
+# various text prompting the user to do actions would be on the
+# screen.
 	#Scenario: Program allows user to add additional years
 		#Given a valid year and month of birth have been entered
 		#When the year "1956" is entered
@@ -47,8 +52,8 @@ Feature: Data Entry
 		When '0' is entered
 		Then the month entry is rejected
 
-	Scenario Outline: Program rejects too high month
+	Scenario: Program rejects too high month
 		Given the program is prompting for a month
 		When '13' is entered
 		Then the month entry is rejected
-		Examples:
+
