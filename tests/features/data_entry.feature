@@ -57,3 +57,13 @@ Feature: Data Entry
 		When '13' is entered
 		Then the month entry is rejected
 
+	Scenario: Program accepts valid date entry on border
+		Given the Full Retirement Age Calculator is started
+		When the year "1900" is entered
+		Then the value is accepted
+
+
+	Scenario: Program accepts valid date entry for current year
+		Given the Full Retirement Age Calculator is started
+		When the year "2020" is entered
+		Then the value is accepted

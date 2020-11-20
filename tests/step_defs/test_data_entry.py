@@ -26,7 +26,7 @@ def year_setup(setup, monkeypatch):
 
 @then("the value is accepted")
 def check_value(setup):
-    assert setup.year  == 1987
+    assert setup.year == 1987
 
 
 
@@ -218,3 +218,57 @@ def enter_month(setup, monkeypatch):
 @then("the month entry is rejected")
 def step_impl(setup):
     assert setup.month != 13
+
+
+
+
+@scenario('../features/data_entry.feature', 'Program accepts valid '
+                                            'date entry on border')
+def test_add():
+    pass
+
+
+@given("the Full Retirement Age Calculator is started")
+def start():
+    pass
+
+
+@when('the year "1900" is entered')
+def year_setup(setup, monkeypatch):
+    choice = StringIO('1900\n')
+    monkeypatch.setattr('sys.stdin', choice)
+    setup.get_birth_year()
+
+
+
+@then("the value is accepted")
+def check_value(setup):
+    assert setup.year  == 1900
+
+
+
+
+
+
+@scenario('../features/data_entry.feature', 'Program accepts valid '
+                                            'date entry for current year')
+def test_add():
+    pass
+
+
+@given("the Full Retirement Age Calculator is started")
+def start():
+    pass
+
+
+@when('the year "2020" is entered')
+def year_setup(setup, monkeypatch):
+    choice = StringIO('2020\n')
+    monkeypatch.setattr('sys.stdin', choice)
+    setup.get_birth_year()
+
+
+
+@then("the value is accepted")
+def check_value(setup):
+    assert setup.year  == 2020
